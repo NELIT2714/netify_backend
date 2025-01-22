@@ -1,3 +1,4 @@
+from fastapi import HTTPException
 from fastapi.responses import JSONResponse
 
 from project.routes.network import network_router
@@ -31,7 +32,6 @@ async def network_details_endpoint(network_data: NetworkDetails):
             "ip": network_ip,
             "hosts": network_hosts,
             "broadcast": network_broadcast,
-            "subnets": 2 ** (32 - network_data.mask_prefix),
             "subnet_mask": subnet_mask,
         },
     })

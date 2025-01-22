@@ -12,7 +12,7 @@ class Subnets(BaseModel):
                 {
                     "network_ip_address": "192.168.1.0",
                     "mask_prefix": 24,
-                    "hosts_per_subnet": 62
+                    "hosts_per_subnet": 30
                 }
             ]
         }

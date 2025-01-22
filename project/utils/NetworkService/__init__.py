@@ -41,10 +41,10 @@ class IPConverter:
             if len(mask_octets) != 4:
                 raise HTTPException(status_code=400, detail="Invalid IP address format")
 
-            mask_binary = ''.join(f'{int(octet):08b}' for octet in mask_octets)
-            cidr = mask_binary.count('1')
+            mask_binary = "".join(f'{int(octet):08b}' for octet in mask_octets)
+            cidr = mask_binary.count("1")
 
-            if not (1 <= cidr <= 32):
+            if not (1 <= cidr <= 32) or "01" in mask_binary:
                 raise HTTPException(status_code=400, detail="Invalid subnet mask")
 
             return cidr
